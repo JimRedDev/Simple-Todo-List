@@ -1,0 +1,42 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+      flex: 1 0 auto;
+  }
+
+.container {
+    padding: 15px;
+    width: 50%;
+}
+
+.delButton {
+    background-color: red;
+    color:white;
+    padding: 1;
+    float: right;
+    border: none;
+    border-radius: 3px;
+}
+
+.aTodo .todoText {
+    vertical-align: middle;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: grey;
+    vertical-align: middle;
+}
+
+footer {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#fff;
+    margin-top: 20px;
+}
