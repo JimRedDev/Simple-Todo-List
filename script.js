@@ -1,31 +1,32 @@
+
+// Global Variables
 const todoOutput = document.querySelector('#todoOutput');
 const todoInput = document.querySelector('#todoInput');
 const submitBtn = document.querySelector('#submitBtn');
 let todos = [];
 
-
+// Add event listeners for adding, marking complete, and deletion
 document.addEventListener('click', (e) => {
+    // Add
     if(e.target.id === "submitBtn") {
         e.preventDefault();
         let todoText = todoInput.value;
         if(todoText) {
             todos.push(createTodo(todoText));
-            // let newTodo = document.createElement('li');
-            // newTodo.className = 'aTodo';
-            // let todoContent = `${createCheckbox()} <span class="todoText">${todoText}</span> ${createDeleteButton()}`;
-            // newTodo.innerHTML = todoContent;
-            // todos.push(newTodo);
+            
             todoInput.value = '';
             todoInput.focus();
             displayTodos(todos);
         }
     }
 
+    // Deletion
     if(e.target.className === 'delButton') {
         todos.splice(e.target.parentNode.id, 1);
         displayTodos();
     }
 
+    // Mark Complete
     if(e.target.className === 'chkSpan') {
         let target = e.target.parentNode.parentNode;
         if(todos[target.id].completed === false) {
@@ -41,6 +42,7 @@ document.addEventListener('click', (e) => {
 
 })
 
+// Return a todo as an object to be stored in the array
 function createTodo(todoText) {
     return {
         'todo-text' : todoText,
